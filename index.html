@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人网站</title>
+    <!-- 引入字体 -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <!-- 引入 Font Awesome (删除旧版本，只保留新版本) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <!-- 代码高亮和 Markdown 渲染 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.2/marked.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js" crossorigin="anonymous"></script>
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+      <div class="nav-brand">
+        <div class="logo">
+          <span class="logo-text">PASSION</span>
+          <!-- <div class="logo-dot"></div> -->
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#about" class="nav-link">
+          <i class="fas fa-user"></i>
+          <span>关于我</span>
+        </a>
+        <a href="#portfolio" class="nav-link">
+          <i class="fas fa-code"></i>
+          <span>作品展示</span>
+        </a>
+        <a href="#ai-chat" class="nav-link">
+          <i class="fas fa-robot"></i>
+          <span>AI助手</span>
+        </a>
+        <a href="#contact" class="nav-link">
+          <i class="fas fa-envelope"></i>
+          <span>联系我</span>
+        </a>
+        <button class="theme-toggle" title="切换主题">
+          <i class="fas fa-sun sun-icon"></i>
+          <i class="fas fa-moon moon-icon"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- 背景轮播 -->
+    <div class="slider">
+      <div class="slides">
+        <div
+          class="slide active"
+          style="
+            background-image: url('https://picsum.photos/1920/1080?random=1');
+          "
+        >
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <h1 class="typewriter">欢迎来到我的世界</h1>
+            <p>让我们一起探索技术与创意的无限可能</p>
+            <a href="#about" class="cta-button">了解更多</a>
+          </div>
+        </div>
+        <div
+          class="slide"
+          style="
+            background-image: url('https://picsum.photos/1920/1080?random=2');
+          "
+        >
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <h1>热爱编程与设计</h1>
+            <p>用代码建梦想，用设计传递美感</p>
+            <a href="#portfolio" class="cta-button">查看作品</a>
+          </div>
+        </div>
+        <div
+          class="slide"
+          style="
+            background-image: url('https://picsum.photos/1920/1080?random=3');
+          "
+        >
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <h1>让我们开始</h1>
+            <p>期待与您一起创造精彩</p>
+            <a href="#contact" class="cta-button">联系我</a>
+          </div>
+        </div>
+      </div>
+      <button class="slider-btn prev">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="slider-btn next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div class="slider-dots"></div>
+    </div>
+
+    <!-- 个人信息展示区 -->
+    <section class="profile" id="about">
+      <div class="avatar">
+        <img src="https://picsum.photos/200" alt="头像" />
+      </div>
+      <div class="info">
+        <h1>您的名字</h1>
+        <p class="title">职业头衔</p>
+        <p class="bio">这里是您的个人简介，可以写一些关于自己的介绍。</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="skills">
+        <div class="skill">
+          <span class="skill-name">前端开发</span>
+          <div class="skill-bar" data-percent="90">
+            <div class="skill-level"></div>
+            <span class="skill-percent">90%</span>
+          </div>
+        </div>
+        <!-- 更多技能条 -->
+      </div>
+    </section>
+
+    <!-- 作品展示区 -->
+    <section class="portfolio" id="portfolio">
+      <div class="container">
+        <h2>作品展示</h2>
+        <div class="portfolio-slider">
+          <div class="portfolio-wrapper">
+            <!-- 项目会通过 JavaScript 动态添加 -->
+          </div>
+          <button class="portfolio-nav prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="portfolio-nav next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="portfolio-dots"></div>
+      </div>
+    </section>
+
+    <!-- 在其他脚本之前引入配置文件 -->
+    <script src="config.js"></script>
+
+    <!-- AI对话界面 -->
+    <section class="chat-section" id="ai-chat">
+      <div class="container">
+        <h2>与AI助手对话</h2>
+        <div class="chat-options">
+          <button class="clear-btn">
+            <i class="fas fa-trash"></i> 清空对话
+          </button>
+          <button class="example-btn">
+            <i class="fas fa-lightbulb"></i> 示例问题
+          </button>
+          <div class="example-dropdown">
+            <a href="#">如何学习编程？</a>
+            <a href="#">介绍一下Python语言</a>
+            <a href="#">写一个冒泡排序算法</a>
+            <a href="#">解释什么是RESTful API</a>
+          </div>
+        </div>
+        <div class="chat-container">
+          <div class="chat-messages">
+            <!-- 消息会在这里动态添加 -->
+          </div>
+          <div class="chat-input">
+            <input type="text" placeholder="输入消息..." />
+            <button class="voice-btn" title="语音输入">
+              <i class="fas fa-microphone"></i>
+            </button>
+            <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 联系我区域 -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2>联系我</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div class="info">
+                <h3>邮箱</h3>
+                <p>example@email.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-weixin"></i>
+              <div class="info">
+                <h3>微信</h3>
+                <p>WeChat_ID</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-github"></i>
+              <div class="info">
+                <h3>GitHub</h3>
+                <p>github.com/yourusername</p>
+              </div>
+            </div>
+          </div>
+          <form class="contact-form">
+            <div class="form-group">
+              <input type="text" placeholder="您的名字" required />
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="您的邮箱" required />
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="主题" />
+            </div>
+            <div class="form-group">
+              <textarea placeholder="您的消息" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">发送消息</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 删除原有的友情链接和底部版权区域，替换为新的合并区域 -->
+    <footer>
+      <div class="footer-content">
+        <div class="links-section">
+          <h3>友情链接</h3>
+          <div class="links-grid">
+            <a href="#" class="link-card">
+              <i class="fas fa-blog"></i>
+              <span>我的博客</span>
+            </a>
+            <a href="#" class="link-card">
+              <i class="fab fa-github"></i>
+              <span>GitHub</span>
+            </a>
+            <a href="#" class="link-card">
+              <i class="fab fa-linkedin"></i>
+              <span>LinkedIn</span>
+            </a>
+            <!-- 更多链接卡片 -->
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2024 您的名字. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 引入JS -->
+    <script src="script.js"></script>
+
+    <!-- 返回顶部按钮 -->
+    <button class="back-to-top" title="返回顶部">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+  </body>
+</html>
