@@ -37,6 +37,13 @@ const portfolioConfig = {
             title: "项目名称3",
             description: "使用Python开发的数据分析工具...",
             image: "https://picsum.photos/400/300?random=3",
+            details: [
+                "1使用 React 18 和 TypeScript 开发的现代化 Web 应用",
+                "1实现了完整的用户认证和授权系统",
+                "1集成了实时数据更新和消息推送功能",
+                "1采用 Redux Toolkit 进行状态管理",
+                "1使用 Jest 和 React Testing Library 进行单元测试"
+            ],
             demoUrl: "#",
             githubUrl: "#",
             techStack: ["Python", "Django", "PostgreSQL"]
@@ -80,5 +87,18 @@ const portfolioConfig = {
 
         }
         // 可以继续添加更多项目
+    ]
+};
+
+module.exports = {
+    plugins: [
+        // 其他插件...
+        require('./postcss-rpx-to-viewport')({
+            viewportWidth: 750,    // 设计稿宽度
+            unitPrecision: 5,      // 小数点位数
+            minPixelValue: 1,      // 最小转换值
+            multiplier: 1,         // rpx 与 px 的倍数关系
+            exclude: [/node_modules/]
+        })
     ]
 }; 

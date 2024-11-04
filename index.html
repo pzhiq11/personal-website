@@ -4,27 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>个人网站</title>
-    <!-- 引入字体 -->
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"
       rel="stylesheet"
       crossorigin="anonymous"
     />
-    <!-- 引入 Font Awesome (删除旧版本，只保留新版本) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       crossorigin="anonymous"
     />
-    <!-- 代码高亮和 Markdown 渲染 -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css"
       crossorigin="anonymous"
     />
-    <script src="https://cdn.jsdelivr.net/npm/marked@9.1.2/marked.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js" crossorigin="anonymous"></script>
-    <!-- 自定义样式 -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/marked@9.1.2/marked.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -32,8 +34,9 @@
     <nav class="navbar">
       <div class="nav-brand">
         <div class="logo">
+          <div class="logo-dot"></div>
           <span class="logo-text">PASSION</span>
-          <!-- <div class="logo-dot"></div> -->
+          <div class="logo-dot"></div>
         </div>
       </div>
       <div class="nav-links">
@@ -241,7 +244,6 @@
       </div>
     </section>
 
-    <!-- 删除原有的友情链接和底部版权区域，替换为新的合并区域 -->
     <footer>
       <div class="footer-content">
         <div class="links-section">
@@ -268,14 +270,30 @@
       </div>
     </footer>
 
-    <!-- 引入JS -->
     <script src="script.js"></script>
 
     <!-- 返回顶部按钮 -->
     <button class="back-to-top" title="返回顶部">
       <i class="fas fa-arrow-up"></i>
     </button>
-
-
+    <!-- 作品展示弹窗 -->
+    <div class="portfolio-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3></h3>
+          <button class="close-modal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-description"></div>
+          <div class="modal-details">
+            <h4>项目详情</h4>
+            <ul></ul>
+          </div>
+          <div class="tech-stack"></div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,3 +1,11 @@
+
+document.addEventListener('DOMContentLoaded', () => {
+  new Slider();
+  new Chat();
+  new ThemeManager();
+  new PageEffects();
+  new PortfolioSlider();
+});
 // 轮播图功能
 class Slider {
   constructor() {
@@ -335,6 +343,8 @@ class Chat {
                         const content = json.choices[0]?.delta?.content || '';
                         if (content) {
                             fullContent += content;
+                            console.log('PPPPTEST',fullContent);
+                            
                             // 实时渲染 Markdown
                             contentElement.innerHTML = marked.parse(fullContent);
                             
@@ -666,7 +676,6 @@ class ThemeManager {
     }
 }
 
-// 添加新的类
 class PageEffects {
     constructor() {
         // 技能条动画
@@ -722,15 +731,6 @@ class PageEffects {
         images.forEach(img => imageObserver.observe(img));
     }
 }
-
-// 页面加载完成后初始化
-document.addEventListener('DOMContentLoaded', () => {
-  new Slider();
-  new Chat();
-  new ThemeManager();
-  new PageEffects();
-});
-
 class PortfolioSlider {
     constructor() {
         this.wrapper = document.querySelector('.portfolio-wrapper');
@@ -739,7 +739,58 @@ class PortfolioSlider {
         
         this.init();
         this.bindEvents();
+         // 添加弹窗相关
+         this.modal = document.querySelector('.portfolio-modal');
+         this.modalTitle = this.modal.querySelector('.modal-header h3');
+         this.modalDescription = this.modal.querySelector('.modal-description');
+         this.modalDetails = this.modal.querySelector('.modal-details ul');
+         this.modalTechStack = this.modal.querySelector('.tech-stack');
+         
+         // 绑定点击事件
+         this.wrapper.addEventListener('click', (e) => {
+             const portfolioItem = e.target.closest('.portfolio-item');
+             if (portfolioItem) {
+                 const index = Array.from(this.wrapper.children).indexOf(portfolioItem);
+                 this.showModal(this.projects[index]);
+             }
+         });
+         
+         // 关闭弹窗
+         this.modal.querySelector('.close-modal').addEventListener('click', () => {
+             this.hideModal();
+         });
+         
+         // 点击遮罩层关闭
+         this.modal.addEventListener('click', (e) => {
+             if (e.target === this.modal) {
+                 this.hideModal();
+             }
+         });
     }
+    showModal(project) {
+      this.modalTitle.textContent = project.title;
+      this.modalDescription.textContent = project.description;
+      
+      // 渲染详情列表
+      if (project.details) {
+          this.modalDetails.innerHTML = project.details
+              .map(detail => `<li>${detail}</li>`)
+              .join('');
+      }
+      
+      // 渲染技术栈
+      this.modalTechStack.innerHTML = project.techStack
+          .map(tech => `<span>${tech}</span>`)
+          .join('');
+          
+      this.modal.classList.add('show');
+      document.body.style.overflow = 'hidden'; // 防止背景滚动
+  }
+  
+  hideModal() {
+      this.modal.classList.remove('show');
+      document.body.style.overflow = '';
+  }
 
     init() {
         // 渲染项目
@@ -836,9 +887,3 @@ class PortfolioSlider {
             this.currentIndex === this.projects.length - 1 ? '0.5' : '1';
     }
 }
-
-// 在页面加载完成后初始化
-document.addEventListener('DOMContentLoaded', () => {
-    // ... 其他初始化代码 ...
-    new PortfolioSlider();
-});
